@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
-  get "cartitems/new"
   resources :products
   #root "products#index"
   get 'top/main'
-  resources :cart_items, only: [:new, :create, :destroy]
-  
+  resources :cartitems, only: [:new, :create, :destroy]
+  resources :cart_items, only: [:new, :create]
+  resources :carts, only:[:show]
+  #resources :cartitems
+
   root 'top#main'
 end
